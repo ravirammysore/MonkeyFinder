@@ -4,22 +4,39 @@
 namespace MonkeyFinder.View;
 
 public partial class MainPage : ContentPage
-{
-	Monkey m1;
+{	
 	public MainPage()
 	{
 		InitializeComponent();
+		ShowMonkeys();
        
-    }
+    }	
 
-	private void btnShow_Clicked(object sender, EventArgs e)
-	{
-        m1 = new Monkey
+	public void ShowMonkeys()
+	{       
+        var m1 = new Monkey
         {
             Name = "Baboon",
-            Details = "Africa and Asia"
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/baboon.jpg",
+            Location = "Africa and Asia"
         };
 
-        this.BindingContext = m1;
+        var m2 = new Monkey
+        {
+            Name = "Capuchin Monkey",
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/capuchin.jpg",
+            Location = "Central and South America"
+        };
+
+        var m3 = new Monkey
+        {
+            Name = "Red-shanked douc",
+            Image = "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/douc.jpg",
+            Location = "Vietnam"
+        };
+
+        Monkey[] monkeys = {m1, m2, m3};
+
+        collectionView.ItemsSource = monkeys;
     }
 }
